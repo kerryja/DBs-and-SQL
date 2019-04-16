@@ -1,0 +1,45 @@
+1. 
+
+1. string
+2. integer
+3. date
+4. float
+5. numeric value
+
+2. A text file is used if you simply need to store data but you do not need to manipulate it in any way. A text file allows you to hold data that will persist beyond the end of the program you are running, but it really is not able to accomplish anything beyond that. Databases, however, allow for the data to be manipulated and prevent the data from being overwritten or lost when the program is running on multiple applications. Databases make it easy to search for data and are typically have UIs, making them user friendly.
+
+3. One difference between SQL and other programming languages is that SQL is a declarative language, while most are procedural. This means that with SQL, the database engine will find its own way to return the data, and all we have to do is tell it what data we want.
+
+4. Databases are structured using tables, just like any chart or spreadsheet. The tables store the data and allow users to easily make queries. The tables are made up of rows and columns and these can be made up of different data types such as numbers, strings, dates and times. This table structure makes it very easy to store and organize large amounts of data. 
+
+5. The columns in a table define what the data represents and each row of the table makes up one complete unit. Each value of the database is in the individual cells of the table, which is the intersection of a column and row.
+
+6. Date/time, character/string, numeric
+
+7. 
+
+1. Find the date and amount from all payments made
+
+2. Find all payments made that are greater than $500
+
+3. Select all payment that were made payable to Mega Foods
+
+8.
+
+SELECT email, signup
+FROM users
+WHERE name = 'DeAndre Data'
+
+name: 'DeAndre Data'  email: 'datad@comcast.net'  signup: '2008-01-20'
+
+SELECT userid
+FROM users
+WHERE email = 'aleesia.algorithm@uw.edu'
+
+email: 'aleesia.algorithm@uw.edu'  userid: 1
+
+SELECT *
+FROM users
+WHERE userid = 4
+
+userid: 4  name: 'Brandy Boolean'  email: 'bboolean@nasa.gov'  signup: '1999-10-15'
