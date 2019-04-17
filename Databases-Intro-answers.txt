@@ -4,7 +4,7 @@
 2. integer
 3. date
 4. float
-5. numeric value
+5. decimal
 
 2. A text file is used if you simply need to store data but you do not need to manipulate it in any way. A text file allows you to hold data that will persist beyond the end of the program you are running, but it really is not able to accomplish anything beyond that. Databases, however, allow for the data to be manipulated and prevent the data from being overwritten or lost when the program is running on multiple applications. Databases make it easy to search for data and are typically have UIs, making them user friendly.
 
@@ -20,9 +20,21 @@
 
 1. Find the date and amount from all payments made
 
-2. Find all payments made that are greater than $500
+"date",            "amount", 
+'2016-05-01',        1500.00, 
+'2016-05-10',          37.00,   
+'2016-05-15',         124.93,  
+'2016-05-23',          54.72,   
 
-3. Select all payment that were made payable to Mega Foods
+2. Find all amounts from payments that are greater than $500
+
+ "amount"
+  1500.00, 
+
+3. Select all payments that were made payable to Mega Foods
+
+  "date",       "payee",                "amount", "memo"
+  '2016-05-15', 'Mega Foods',            124.93,  'Groceries'
 
 8.
 
