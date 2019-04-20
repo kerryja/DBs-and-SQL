@@ -6,6 +6,8 @@ WHERE heat_level = 'spicy';
 
 2. SELECT, FROM, WHERE
 
+Stop Fueling War
+
 3.
 
 SELECT name, gender, age
