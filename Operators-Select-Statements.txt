@@ -1,0 +1,83 @@
+1.
+
+SELECT ingredient
+FROM taco_recipe
+WHERE heat_level = 'spicy';
+
+2. SELECT, FROM, WHERE
+
+3.
+
+SELECT name, gender, age
+FROM dogs
+WHERE breed LIKE '%Labrador%';
+
+SELECT id 
+FROM dogs
+WHERE age < 1;
+
+SELECT name, age 
+FROM dogs
+WHERE gender='female' 
+AND weight > 35;
+
+SELECT *
+FROM dogs
+WHERE breed NOT LIKE 'shepherd';
+
+SELECT id, age, weight, breed
+FROM dogs
+WHERE breed='Great Dane' 
+OR weight > 60;
+
+4.
+
+    "name",   "adoption_date"
+    'Mushi',   '2016-03-22'
+    'Seashell', NULL
+    'Azul',     '2016-04-17'
+    'Victoire','2016-09-01'
+    'Nala',     NULL
+
+
+    "name",   "age"
+    'Mushi',    1,    
+    'Seashell', 7,    
+    'Azul',     3,    
+    'Victoire', 7,    
+    'Nala',     1,    
+
+5.
+
+SELECT * FROM cats;
+
+SELECT name, sex
+FROM cats
+WHERE age=7;
+
+SELECT name FROM cats;
+
+6.
+
+> / < = to compare all ages of chidren to put on soccer teams
+>= / <= to find out exact weight of children to determine if they can ride roller coaster or not
+!= / = to determine if people are US citizens for immigration line at airport
+AND to search for hotels that accept kids and dogs
+OR to search for trip destinations that have include 'beach' or 'island'  
+LIKE to determine if doctor has 'DMD' in their title
+
+7.
+
+    "name",         
+    'Seashell'              
+    'Nala'
+
+    "name"
+    'Mushi'
+    'Seashell'
+    'Victoire'
+    'Nala'
+
+    "id"
+     3
+     7            
