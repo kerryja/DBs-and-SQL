@@ -1,0 +1,106 @@
+1. INSERT INTO, UPDATE, DELETE FROM
+
+2. 
+
+INSERT INTO (name of table) (columns of table)
+VALUES 
+(list of values to to go in the row)
+
+UPDATE (name of table) SET (value to change) = (new value) WHERE (unique row id) = (value)
+
+DELETE FROM (name of table) WHERE (unique row id) = (value)
+
+3. 
+
+Boolean - true/false can be used in a column that is tracking whether a specific flight number has landed or not
+Arrays - storing days of the week
+Char(20) - storing clothes categories for retailer that cannot exceed 20 characters
+Timestampz - storing date, time and timezone in a trip itinerary that will be visiting multiple countries
+
+4.
+
+  - text
+  - varchar(3)
+  - smallint
+  - smallint
+
+CREATE TABLE wedding_dinner (
+	first_name text,
+	last_name text,
+	rsvp? varchar(3),
+	number_guests smallint,
+	number_meals smallint
+);
+
+ALTER TABLE wedding_dinner ADD COLUMN thankyou_sent varchar(3);
+
+ALTER TABLE wedding_dinner DROP COLUMN number_meals;
+
+ALTER TABLE wedding_dinner ADD COLUMN table_number smallint;
+
+ALTER TABLE wedding_dinner DROP COLUMN table_number;
+
+5. CREATE TABLE library (
+	isbn serial,
+	title text,
+	author text,
+	genre varchar(20),
+	publishing_date date,
+	number_copies smallint,
+	available_copies smallint
+);
+
+INSERT INTO library (isbn, title, author, genre, publishing_date, number_copies, available_copies)
+VALUES
+(1400209609, 'Girl, Stop Apologizing', 'Rachel Hollis', 'lifestyle', 03/05/2019, 100, 1)
+(0984782869, 'Cracking the Coding Interview', 'Gayle Laakmann McDowell', 'career prep', 07/01/2015, 56, 22)
+(0399590501, 'Educated', 'Tara Westover', 'non-fiction', 02/20/2018, 120, 2)
+
+UPDATE library SET available_copies=0 WHERE isbn=1400209609;
+
+DELETE from library WHERE isbn=0399590501;
+
+6. CREATE TABLE satellites (
+	id serial,
+	name text,
+	year_launched date,
+	origin_country text,
+	mission_description varchar(50),
+	orbiting_body text,
+	currently_operating? varchar(3),
+	miles_from_earth bigint
+);
+
+INSERT INTO satellites (id, name, year_launched, origin_country, mission_description, orbiting_body, currently_operating?, miles_from_earth)
+VALUES
+(214567, 'Artemis P1/P2', 2007-01-01, 'USA', 'studying effect of solar wind on moon', 'moon', 'no', 23,000);
+(6789456, 'Mangalyaan', 2013-01-01, 'India', 'first Indian interplanetory space probe, inserted into orbit of Mars', 'mars', 'no', 34,000,000);
+(67845609, 'Akatsuki', 2010-01-01, 'Japan', 'first Japanese Venusian probe', 'venus', 'yes', 162,000,000);
+
+DELETE from satellites WHERE id=6789456;
+
+UPDATE satellites SET currently_operating?='no' WHERE id=67845609;
+
+7. CREATE TABLE emails (
+	id serial,
+	subject_line varchar(20),
+	sender varchar(25),
+	additional_recipients text,
+	email_body text,
+	timestamp,
+	opened? varchar(3),
+	email_chain_id serial
+);
+
+INSERT INTO emails(id, subject_line, sender, additional_recipients, email_body, timestamp, opened?, email_chain_id)
+VALUES
+(234, 'Meeting Time Changed', 'Rebecca Johnson', 'Moira Richardson, Jane Doe', 'Hi everyone, hope you're all doing well. I just wanted to let you know that today's meeting has been switched to next Monday at 4. See you all then! - Rebecca', 2019-01-08 04:05:06, 'yes', 678)
+(56, 'Hello There!', 'Sue Berry', 'Alyssa Cady', 'Hi, just seeing if you guys wanted to meet tonight for drinks at 8?',2019-04-19 02:10:05, 'no', 567)
+(906, 'Your Recent Payment', 'Sam Johnson', 'none', 'Your payment has been received and we will be processing it shortly. Thank you.', 2019-02-28 03:00:06, 'yes', 234)
+
+DELETE FROM emails WHERE id=234;
+
+UPDATE emails SET opened?='no' WHERE id=906;
+
+
+
