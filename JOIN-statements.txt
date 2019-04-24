@@ -1,0 +1,149 @@
+1. In order to find related data held in two separate tables, you need to use a join clause, more specifically, an inner join statement which will show records that have matching values in both tables.
+
+2. INNER JOIN - selects all rows from both tables as long as there is a match between them.
+   example: trying to find a donor for a patient with O- blood type since they can only receive blood from other O- types
+
+LEFT OUTER JOIN - this allows all rows to be displayed in the left table but if any of them are unmatched, it joins them with a null row in the shape of the right table
+example: on the left side showing a database with a waitlist of people wanting to attend a free event in New England and on the right side only showing the city preferences that match 'Boston'. 
+
+RIGHT OUTER JOIN - this allows all rows to be displayed in the right table but if any of them are unmatched, it joins them with a null row in the shape of the left table
+example: to compare a list of baseball players against a team roster to see who is assigned a certain team.
+
+3. Primary key - unique identifier for a row of data. A table has just one primary key column and none of those values can be null.
+   example: inmate id number in a prison database
+
+Foreign key - a set of one or more columns in a table that refers to the primary key of another table
+example: a sales database that generates leads once a person creates an online account, linking all of their info to a customer id number.
+
+4. Aliasing is using abbreviated table names to simplify and shorten query selections.
+
+5.
+
+SELECT prof.name, comp.salary,
+comp.vacation_days FROM professor JOIN
+compensation ON prof.id =
+comp.professor_id;
+
+6. NATURAL is used to show only the columns that appear in both input tables, and will only display them once. This could be used for companies that are upgrading their payroll system - when new data is imported and compared with the original data, it will only show columns such as employee_id and SSN only once.
+
+7. 
+
+SELECT employees.name, shifts.start_time, shifts.end_time
+FROM employees
+LEFT OUTER JOIN shifts
+ON employees.id = shifts.id;
+
+8.
+
+Query:
+
+SELECT volunteers.first_name, volunteers.last_name, dogs.name, dogs.id
+FROM volunteers LEFT OUTER JOIN dogs
+ON volunteers.foster_dog_id = dogs.id;
+
+Result:
+
+first_name	last_name	name	id
+Albus	Dumbledore	(null)	(null)
+Rubeus	Hagrid	Munchkin	10002
+Remus	Lupin	(null)	(null)
+Sirius	Black	(null)	(null)
+Marjorie	Dursley	Marmaduke	10006
+
+Query:
+
+SELECT cats.name, adopters.first_name, adopters.last_name, cat_adoptions.date
+FROM cats JOIN cat_adoptions ON cats.id = cat_adoptions.cat_id 
+JOIN adopters ON cat_adoptions.adopter_id = adopters.id
+WHERE cat_adoptions.date <= 31;
+
+Result:
+
+name	first_name	last_name	date
+Mushi	Arabella	Figg	20
+Victoire	Argus	Filch	15
+
+Query:
+
+SELECT adopters.first_name, adopters.last_name
+FROM adopters LEFT OUTER JOIN dog_adoptions ON adopters.id = dog_adoptions.adopter_id
+WHERE dog_adoptions.dog_id IS NULL;
+
+Result:
+
+first_name	last_name
+Hermione	Granger
+Arabella	Figg
+
+Query:
+
+SELECT cats.name, cats.id
+FROM cats LEFT OUTER JOIN cat_adoptions ON cats.id = cat_adoptions.cat_id
+WHERE cat_adoptions.cat_id IS NULL
+UNION
+SELECT dogs.name, dogs.id
+FROM dogs LEFT OUTER JOIN dog_adoptions ON dogs.id = dog_adoptions.dog_id
+WHERE dog_adoptions.dog_id IS NULL;
+
+Result:
+
+name	id
+Seashell	2
+Nala	5
+Boujee	10001
+Munchkin	10002
+Lassie	10003
+Marley	10004
+Marmaduke	10006
+
+Query:
+
+SELECT adopters.first_name, adopters.last_name
+FROM adopters RIGHT OUTER JOIN dog_adoptions ON adopters.id = dog_adoptions.adopter_id 
+JOIN dogs ON dog_adoptions.dog_id = dogs.id 
+WHERE dogs.name = 'Rosco';
+
+Result:
+
+first_name	last_name
+Argus	Filch
+
+9.
+
+Query:
+
+SELECT patrons.name, holds.rank
+FROM patrons RIGHT OUTER JOIN holds ON patrons.id = holds.patron_id JOIN books ON holds.isbn = books.isbn 
+WHERE books.title = 'Advanced Potion-Making'
+ORDER BY holds.rank;
+
+Result:
+
+name	rank
+Terry Boot	1
+Cedric Diggory	2
+
+Query:
+
+SELECT patrons.name, books.title
+FROM patrons
+LEFT OUTER JOIN (
+  SELECT transactions.isbn, transactions.patron_id
+  FROM transactions
+  WHERE transactions.checked_in_date IS NULL
+) AS transactions ON patrons.id = transactions.patron_id
+LEFT OUTER JOIN books ON books.isbn = transactions.isbn
+
+Result:
+
+name	title
+Hermione Granger	(null)
+Terry Boot	Advanced Potion-Making
+Padma Patil	(null)
+Cho Chang	(null)
+Cedric Diggory	Fantastic Beasts and Where to Find Them
+
+
+
+
+
