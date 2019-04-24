@@ -1,8 +1,8 @@
 1.
 
-SELECT ingredient
-FROM taco_recipe
-WHERE heat_level = 'spicy';
+SELECT <column1, column2, column3...>
+FROM <table1, table2...>
+<optional: WHERE <condition>>
 
 2. SELECT, FROM, WHERE
 
@@ -61,12 +61,17 @@ SELECT name FROM cats;
 
 6.
 
-> / < = to compare all ages of chidren to put on soccer teams
+> / <= to compare all ages of chidren to put on soccer teams
 >= / <= to find out exact weight of children to determine if they can ride roller coaster or not
-!= / = to determine if people are US citizens for immigration line at airport
-AND to search for hotels that accept kids and dogs
-OR to search for trip destinations that have include 'beach' or 'island'  
-LIKE to determine if doctor has 'DMD' in their title
+!= / <> / = to determine if people are US citizens for immigration line at airport
+AND - to search for hotels that accept kids and dogs
+OR - to search for trip destinations that have include 'beach' or 'island'  
+LIKE - to determine if doctor has 'DMD' in their title
+NOT / IS NULL -  to find which patient's insurance information is still needed for a doctor's office
+IS TRUE / FALSE - to find if a person tests positive for a certain disease to see if they qualify to donate blood or not
+IS DISTINCT FROM - to remove duplicates of the same product in different colors so a store owner knows how many unique products they have  
+BETWEEN - to get a range of clothes in a store between $20 and $50  
+
 
 7.
 
